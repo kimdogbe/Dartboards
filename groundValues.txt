@@ -1,0 +1,37 @@
+dart4.jpg:
+actual faces = 1
+detected faces = 1
+face = x:350 y:91 w:122 h:179
+
+dart5.jpg:
+actual faces = 11
+detected faces = 14
+top row 1(bill) = x:65 y:142 w:55 h:60
+top row 2(mike) = x:252 y:168 w:51 h:60
+top row 3(bob) = x:384 y:195 w:54 h:50
+top row 4(daren) = x:518 y:177 w:50 h:61
+top row 5(rodrigo) = x:649 y:189 w:52 h:57
+bottom row 1(wilna) = x:54 y:253 w:63 h:65
+bottom row 2(emma) = x:195 y:209 w:53 h:74
+bottom row 3(caren) = x:296 y:235 w:51 h:75
+bottom row 4(sussan) = x:428 y:230 w:58 h:73
+bottom row 5(michelle) = x:562 y:238 w:52 h:76
+bottom row 6(samantha) = x:680 y:239 w:53 h:70
+
+dart13:jpg
+actual faces = 1
+detected faces = 2
+faces x:424 y:115 w:102 h:141
+
+dart14:jpg
+actual faces = 2
+detected faces = 6
+left face x:472 y:204 w:76 h:119
+right face = x:732 y:183 w:94 h:112
+
+dart15:jpg
+actual faces = 3
+detected faces = 4
+left face x:71 y:129 w:55 h:84
+middle face x:369 y:112 w:52 h:77
+right face = x:540 y:120 w:66 h:95
