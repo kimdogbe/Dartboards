@@ -20,6 +20,7 @@ using namespace cv;
 
 /** Function Headers */
 void detectAndDisplay( Mat frame );
+vector<Rect> facesByHand();
 
 /** Global variables */
 String cascade_name = "frontalface.xml";
@@ -44,6 +45,23 @@ int main( int argc, const char** argv )
 	return 0;
 }
 
+vector<Rect> facesByHand(){
+	std::vector<Rect> groundFaces;
+	groundFaces.push_back(Rect(65, 142, 55, 60));
+	groundFaces.push_back(Rect(252, 168, 51, 60));
+	groundFaces.push_back(Rect(384, 195, 54, 50));
+	groundFaces.push_back(Rect(518, 177, 50, 61));
+	groundFaces.push_back(Rect(649, 189, 52, 57));
+	groundFaces.push_back(Rect(54, 253, 63, 65));
+	groundFaces.push_back(Rect(195, 209, 53, 74));
+	groundFaces.push_back(Rect(296, 235, 51, 75));
+	groundFaces.push_back(Rect(428, 230, 58, 73));
+  groundFaces.push_back(Rect(562, 238, 52, 76));
+	groundFaces.push_back(Rect(680, 239, 53, 70));
+
+	return groundFaces;
+}
+
 /** @function detectAndDisplay */
 void detectAndDisplay( Mat frame )
 {
@@ -65,5 +83,11 @@ void detectAndDisplay( Mat frame )
 	{
 		rectangle(frame, Point(faces[i].x, faces[i].y), Point(faces[i].x + faces[i].width, faces[i].y + faces[i].height), Scalar( 0, 255, 0 ), 2);
 	}
+
+	vector<Rect> groundFaces = facesByHand();
+	for (int i = 0; i < groundFaces.size(); i++){
+		rectangle(frame, Point(groundFaces[i].x, groundFaces[i].y), Point(groundFaces[i].x + groundFaces[i].width, groundFaces[i].y + groundFaces[i].height), Scalar( 255, 0, 0 ), 2);
+	}
+
 
 }
