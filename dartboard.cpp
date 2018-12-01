@@ -34,7 +34,7 @@ int main( int argc, char** argv )
 		 Mat image;
 		 image = imread( imageName, 1 );
 		 Mat gray_image, image_blured;
-		 GaussianBlur(image, image_blured, Size(5,5), 0, 0, BORDER_DEFAULT);
+		 GaussianBlur(image, image_blured, Size(3,3), 0, 0, BORDER_DEFAULT);
 		 cvtColor(image_blured, gray_image, CV_BGR2GRAY);
 
 		 // if( argc != 2 || !image.data )
@@ -92,7 +92,7 @@ void sobel(Mat src, char* imageName){
      imageOrientation.at<float>(y,x) = (float)atan2( imageDY.at<float>(y,x), imageDX.at<float>(y,x) );
 
 		 //set threshold for image magnitude
-     if(imageMagnitude.at<float>(y,x) > 40)
+     if(imageMagnitude.at<float>(y,x) > 100)
      {
        imageMagnitude.at<float>(y,x) = 255;
      }
@@ -122,7 +122,7 @@ void sobel(Mat src, char* imageName){
 	imwrite("gradientMag.png", imageMagnitude);
 	imwrite("gradientOrt.png", imageOrientation);
 
-	hough(imageMagnitude, imageOrientation, 50, 200, imageName);
+	hough(imageMagnitude, imageOrientation, 40, 200, imageName);
 }
 
 int ***malloc3dArray(int dim1, int dim2, int dim3)
@@ -210,7 +210,7 @@ void hough(Mat imgMag, Mat imgGrad, int minRad, int maxRad, char* imageName)
 
         houghSum += ipppArr[i][j][k];
 
-        if(ipppArr[i][j][k] > 150){
+        if(ipppArr[i][j][k] > 100){
           circle(imgMag, Point(j, i), k, Scalar(0, 0, 255), 2, 8, 0);
 					circle(imgMag, Point(j, i), 1, Scalar(0, 255, 0), 2, 8, 0);
         }
